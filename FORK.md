@@ -23,4 +23,8 @@ git rebase --onto vNEW v2.3.0 siraaj        # replay the fork commits
 # bump custom_components/flightradar24/manifest.json version to vNEW-siraaj.1, run pytest
 git push --force-with-lease origin siraaj
 gh release create vNEW-siraaj.1 --target siraaj --title vNEW-siraaj.1 --notes "Upstream vNEW + fork fixes (FORK.md)"
+# HACS installs the release asset flightradar24.zip (hacs.json zip_release). Actions are disabled on
+# this fork (org policy: self-hosted runners only), so build and upload it by hand:
+(cd custom_components/flightradar24 && rm -f /tmp/flightradar24.zip && zip -qr /tmp/flightradar24.zip . -x '__pycache__/*')
+gh release upload vNEW-siraaj.1 /tmp/flightradar24.zip
 ```
