@@ -218,3 +218,10 @@ def test_a_real_connection_error_still_reaches_the_error_log() -> None:
 
     assert coordinator.logger.error.call_count == 1
     assert coordinator.logger.debug.call_count == 0
+
+
+def test_library_empty_feed_retries_disabled():
+    """the-siraaj fork (#330): an empty box must cost one feed request, not five."""
+    import FlightRadarAPI.api as lib
+    import custom_components.flightradar24.api.client  # noqa: F401  (applies the setting)
+    assert lib.FEED_EMPTY_RETRIES == 0

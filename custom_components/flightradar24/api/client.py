@@ -1,4 +1,12 @@
 from FlightRadarAPI import FlightRadar24API, Flight
+import FlightRadarAPI.api as _fr24_lib
+
+# the-siraaj fork: no library-level retries of an empty feed box (#330). The library
+# re-asks up to 4 more times whenever a box has no flights but the feed's global
+# full_count is non-zero, so a small radius that is genuinely empty costs 5 requests
+# per scan and keeps FR24's 429 throttle in place. The integration already handles the
+# sticky empty-session case itself (is_session_healthy canary + session renewal).
+_fr24_lib.FEED_EMPTY_RETRIES = 0
 from ..const import (
     FAILURE_COOLDOWN,
     HTTP_TOO_MANY_REQUESTS,

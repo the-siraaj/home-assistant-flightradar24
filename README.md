@@ -1,3 +1,5 @@
+> **the-siraaj fork** of the upstream integration with a rate-limit fix; see [FORK.md](FORK.md).
+
 # Flightradar24 integration for Home Assistant
 [![version](https://img.shields.io/github/manifest-json/v/AlexandrErohin/home-assistant-flightradar24?filename=custom_components%2Fflightradar24%2Fmanifest.json&color=slateblue)](https://github.com/AlexandrErohin/home-assistant-flightradar24/releases/latest)
 [![HACS](https://img.shields.io/badge/HACS-Default-orange.svg?logo=HomeAssistantCommunityStore&logoColor=white)](https://github.com/hacs/integration)
